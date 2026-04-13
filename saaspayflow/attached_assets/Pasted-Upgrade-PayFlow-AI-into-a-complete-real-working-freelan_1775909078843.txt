@@ -1,0 +1,249 @@
+Upgrade PayFlow AI into a complete, real working freelancer–client system.
+
+Follow this implementation strictly in order. Do NOT skip steps.
+
+---
+
+STEP 1 — DATABASE STRUCTURE
+
+Create the following tables:
+
+1. invoice_links
+
+* id
+* invoice_id
+* token
+* public_url
+* created_at
+
+2. invoice_messages
+
+* id
+* invoice_id
+* sender ("client" | "freelancer")
+* message
+* created_at
+
+3. invoice_payments
+
+* id
+* invoice_id
+* amount
+* method ("upi" | "bank" | "cash" | "card" | "other")
+* reference (optional)
+* status ("pending" | "confirmed")
+* created_at
+
+4. invoice_requests
+
+* id
+* invoice_id
+* type ("extension" | "dispute")
+* reason
+* message
+* status ("pending" | "approved" | "rejected")
+* created_at
+
+5. invoice_activity
+
+* id
+* invoice_id
+* type ("created" | "sent" | "reminder" | "payment_requested" | "payment_confirmed" | "message" | "request")
+* data (JSON or text)
+* created_at
+
+---
+
+STEP 2 — INVOICE SEND FLOW
+
+When user clicks "Send Invoice":
+
+* generate unique token
+* create public URL (/invoice/:token)
+* store in invoice_links
+* insert activity: type = "sent"
+
+Ensure:
+
+* freelancer can always re-copy this link later
+
+---
+
+STEP 3 — CLIENT PORTAL CONNECTION
+
+Inside /invoice/:token:
+
+Enable:
+
+1. Messaging
+
+* save message to invoice_messages
+* sender = "client"
+* reflect in freelancer dashboard
+* log activity "message"
+
+2. Payment Confirmation
+
+* client enters:
+  amount
+  method
+  reference
+
+* save to invoice_payments with status = "pending"
+
+* log activity "payment_requested"
+
+3. Extension Request
+
+* save in invoice_requests
+* log activity "request"
+
+---
+
+STEP 4 — FREELANCER SIDE (IMPORTANT)
+
+Inside invoice details page:
+
+Show real data:
+
+1. Messages (client ↔ freelancer)
+
+2. Payment requests:
+
+   * show pending payments
+   * button: "Confirm payment"
+     → updates status = confirmed
+     → mark invoice paid (if full)
+     → log activity "payment_confirmed"
+
+3. Extension requests:
+
+   * approve / reject
+
+4. Activity timeline:
+
+   * list all events in order
+
+---
+
+STEP 5 — PAYMENT SYSTEM (REAL LOGIC)
+
+Implement OFFLINE payment system properly:
+
+Payment methods:
+
+* UPI
+* Bank Transfer
+* Cash
+* Card (UI only)
+* Other
+
+When client selects method:
+
+IF UPI:
+→ show UPI ID from settings
+
+IF Bank:
+→ show account name, account number, IFSC
+
+IF Cash:
+→ show simple instruction
+
+IF Card:
+→ show "Online payments coming soon"
+
+All values must come from Settings page.
+
+---
+
+STEP 6 — SETTINGS PAGE (REQUIRED)
+
+Store:
+
+* business name
+* UPI ID
+* bank account name
+* account number
+* IFSC
+* PayPal email (optional)
+
+These must be used dynamically in client portal.
+
+---
+
+STEP 7 — DROPDOWN UI FIX (VERY IMPORTANT)
+
+Replace ALL default <select> inputs.
+
+Use custom dropdown (shadcn / Radix style):
+
+* background: #111714
+* border: subtle green
+* hover: #7CFF5B
+* rounded corners
+* no white backgrounds anywhere
+
+Apply to:
+
+* payment method
+* extension reason
+* all selects
+
+---
+
+STEP 8 — PAYMENTS PAGE
+
+Show:
+
+* total received (confirmed payments)
+* list of all payments
+* highlight pending payments
+
+---
+
+STEP 9 — UI CONSISTENCY FIX
+
+Apply globally:
+
+* input height = 48px
+* proper spacing between sections
+* remove cramped layouts
+* improve line item UI (card style, not table)
+* reduce oversized total text
+* consistent typography
+
+---
+
+STEP 10 — FINAL SYSTEM BEHAVIOR
+
+After implementation:
+
+Client can:
+
+* view invoice
+* see how to pay
+* confirm payment
+* send message
+* request extension
+
+Freelancer can:
+
+* see all client actions
+* confirm payments
+* respond to messages
+* track full activity timeline
+* resend invoice link
+
+---
+
+GOAL:
+
+Make PayFlow AI a real, usable SaaS system where:
+
+* data flows correctly between client and freelancer
+* payments are clearly understood
+* no fake UI actions exist
+* everything is tracked and visible
+* UI is clean, consistent, and professional
+
+---

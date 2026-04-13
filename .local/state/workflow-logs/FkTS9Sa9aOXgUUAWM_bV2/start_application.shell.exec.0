@@ -1,0 +1,53 @@
+
+> vite_react_shadcn_ts@0.0.0 dev
+> concurrently --kill-others --prefix none "npm run dev:api" "vite"
+
+[1G[0K
+> vite_react_shadcn_ts@0.0.0 dev:api
+> cross-env API_PORT=3001 tsx watch backend/server.ts
+
+
+  [32m[1mVITE[22m v5.4.19[39m  [2mready in [0m[1m1414[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5000[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.31.80.66:[1m5000[22m/[39m
+◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Server running on port 3001
+API Routes at /api
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader [90m(file:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:342:13[90m)[39m
+    at wrappedValidations.<computed> [as xForwardedForHeader] [90m(file:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:656:22[90m)[39m
+    at Object.keyGenerator [90m(file:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:759:20[90m)[39m
+    at [90mfile:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:823:32
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async [90mfile:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:801:5 {
+  code: [32m'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR'[39m,
+  help: [32m'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'[39m
+}
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 1043.679 ms - 45[0m
+[0mPOST /api/auth/sync [33m400[0m 1043.800 ms - 45[0m
+[0mPOST /api/auth/sync [33m400[0m 1078.123 ms - 45[0m
+[90m2:46:05 AM[39m [96m[tsx][39m [95mchange[39m in [92m./backend/server.ts[39m [33mRestarting...[39m
+c◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
+Server running on port 3001
+API Routes at /api
+[90m2:46:16 AM[39m [96m[tsx][39m [95mchange[39m in [92m./backend/database/db.ts[39m [33mRestarting...[39m
+c◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Server running on port 3001
+API Routes at /api
+[db] ✅ Connected to PostgreSQL — 15 tables in public schema
+[0mnpm run dev:api exited with code SIGHUP[0m
+[0m-->[0m [0mSending SIGTERM to other processes..[0m
+[0mvite exited with code SIGHUP[0m

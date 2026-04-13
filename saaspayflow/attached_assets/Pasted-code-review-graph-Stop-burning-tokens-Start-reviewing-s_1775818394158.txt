@@ -1,0 +1,104 @@
+code-review-graph
+Stop burning tokens. Start reviewing smarter.
+
+Website Discord Stars MIT Licence CI Python 3.10+ MCP v2.1.0
+
+
+AI coding tools re-read your entire codebase on every task. code-review-graph fixes that. It builds a structural map of your code with Tree-sitter, tracks changes incrementally, and gives your AI assistant precise context via MCP so it reads only what matters.
+
+The Token Problem: 8.2x average token reduction across 6 real repositories
+
+Quick Start
+pip install code-review-graph                     # or: pipx install code-review-graph
+code-review-graph install          # auto-detects and configures all supported platforms
+code-review-graph build            # parse your codebase
+One command sets up everything. install detects which AI coding tools you have, writes the correct MCP configuration for each one, and injects graph-aware instructions into your platform rules. It auto-detects whether you installed via uvx or pip/pipx and generates the right config. Restart your editor/tool after installing.
+
+One Install, Every Platform: auto-detects Claude Code, Cursor, Windsurf, Zed, Continue, OpenCode, and Antigravity
+
+To target a specific platform:
+
+code-review-graph install --platform cursor      # configure only Cursor
+code-review-graph install --platform claude-code  # configure only Claude Code
+Requires Python 3.10+. For the best experience, install uv (the MCP config will use uvx if available, otherwise falls back to the code-review-graph command directly).
+
+Then open your project and ask your AI assistant:
+
+Build the code review graph for this project
+The initial build takes ~10 seconds for a 500-file project. After that, the graph updates automatically on every file edit and git commit.
+
+How It Works
+How your AI assistant uses the graph: User asks for review, AI checks MCP tools, graph returns blast radius and risk scores, AI reads only what matters
+
+Your repository is parsed into an AST with Tree-sitter, stored as a graph of nodes (functions, classes, imports) and edges (calls, inheritance, test coverage), then queried at review time to compute the minimal set of files your AI assistant needs to read.
+
+Architecture pipeline: Repository to Tree-sitter Parser to SQLite Graph to Blast Radius to Minimal Review Set
+
+Blast-radius analysis
+When a file changes, the graph traces every caller, dependent, and test that could be affected. This is the "blast radius" of the change. Your AI reads only these files instead of scanning the whole project.
+
+Blast radius visualization showing how a change to login() propagates to callers, dependents, and tests
+
+Incremental updates in < 2 seconds
+On every git commit or file save, a hook fires. The graph diffs changed files, finds their dependents via SHA-256 hash checks, and re-parses only what changed. A 2,900-file project re-indexes in under 2 seconds.
+
+Incremental update flow: git commit triggers diff, finds dependents, re-parses only 5 files while 2,910 are skipped
+
+The monorepo problem, solved
+Large monorepos are where token waste is most painful. The graph cuts through the noise — 27,700+ files excluded from review context, only ~15 files actually read.
+
+Next.js monorepo: 27,732 files funnelled through code-review-graph down to ~15 files — 49x fewer tokens
+
+19 languages + Jupyter notebooks
+19 languages organized by category: Web, Backend, Systems, Mobile, Scripting, plus Jupyter/Databricks notebook support
+
+Full Tree-sitter grammar support for functions, classes, imports, call sites, inheritance, and test detection in every language. Plus Jupyter/Databricks notebook parsing (.ipynb) with multi-language cell support (Python, R, SQL), and Perl XS files (.xs).
+
+Benchmarks
+Benchmarks across real repos: 4.9x to 27.3x fewer tokens, higher review quality
+
+All numbers come from the automated evaluation runner against 6 real open-source repositories (13 commits total). Reproduce with code-review-graph eval --all. Raw data in evaluate/reports/summary.md.
+
+Token efficiency: 8.2x average reduction (naive vs graph)
+Impact accuracy: 100% recall, 0.54 average F1
+Build performance
+Limitations and known weaknesses
+Features
+Feature	Details
+Incremental updates	Re-parses only changed files. Subsequent updates complete in under 2 seconds.
+19 languages + notebooks	Python, TypeScript/TSX, JavaScript, Vue, Go, Rust, Java, Scala, C#, Ruby, Kotlin, Swift, PHP, Solidity, C/C++, Dart, R, Perl, Lua, Jupyter/Databricks (.ipynb)
+Blast-radius analysis	Shows exactly which functions, classes, and files are affected by any change
+Auto-update hooks	Graph updates on every file edit and git commit without manual intervention
+Semantic search	Optional vector embeddings via sentence-transformers, Google Gemini, or MiniMax
+Interactive visualisation	D3.js force-directed graph with edge-type toggles and search
+Local storage	SQLite file in .code-review-graph/. No external database, no cloud dependency.
+Watch mode	Continuous graph updates as you work
+Execution flows	Trace call chains from entry points, sorted by criticality
+Community detection	Cluster related code via Leiden algorithm or file grouping
+Architecture overview	Auto-generated architecture map with coupling warnings
+Risk-scored reviews	detect_changes maps diffs to affected functions, flows, and test gaps
+Refactoring tools	Rename preview, dead code detection, community-driven suggestions
+Wiki generation	Auto-generate markdown wiki from community structure
+Multi-repo registry	Register multiple repos, search across all of them
+MCP prompts	5 workflow templates: review, architecture, debug, onboard, pre-merge
+Full-text search	FTS5-powered hybrid search combining keyword and vector similarity
+Usage
+Slash commands
+CLI reference
+22 MCP tools
+Configuration
+Contributing
+git clone https://github.com/tirth8205/code-review-graph.git
+cd code-review-graph
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+pytest
+Adding a new language
+Licence
+MIT. See LICENSE.
+
+
+code-review-graph.com
+
+pip install code-review-graph && code-review-graph install
+Works with Claude Code, Cursor, Windsurf, Zed, Continue, OpenCode, and Antigravity

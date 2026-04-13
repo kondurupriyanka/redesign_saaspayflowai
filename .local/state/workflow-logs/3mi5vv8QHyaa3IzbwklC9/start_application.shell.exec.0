@@ -1,0 +1,431 @@
+
+> vite_react_shadcn_ts@0.0.0 dev
+> concurrently --kill-others --prefix none "npm run dev:api" "vite"
+
+[1G[0K
+> vite_react_shadcn_ts@0.0.0 dev:api
+> cross-env API_PORT=3001 tsx watch backend/server.ts
+
+
+  [32m[1mVITE[22m v5.4.19[39m  [2mready in [0m[1m396[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5000[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.31.80.66:[1m5000[22m/[39m
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
+Server running on port 3001
+API Routes at /api
+[db] ✅ Connected to PostgreSQL — 15 tables in public schema
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 731.612 ms - 531[0m
+[0mPOST /api/auth/sync [32m200[0m 728.351 ms - 531[0m
+[0mPOST /api/auth/sync [32m200[0m 784.251 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[0mGET /api/invoices/list/overdue [32m200[0m 34.035 ms - 2[0m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 34.026 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 4.787 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f [36m304[0m 4.234 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 30.625 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 36.966 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 34.666 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 28.484 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 45.348 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 315.061 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 30.936 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 35.912 ms - 531[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.900 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 43.678 ms - 531[0m
+[0mPOST /api/auth/sync [32m200[0m 49.771 ms - 531[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.618 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 55.973 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 306.724 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 42.634 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 51.602 ms - 531[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.836 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.646 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [36m304[0m 46.929 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.664 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 31.874 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [36m304[0m 44.754 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.777 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.818 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 54.539 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 305.349 ms - 531[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.699 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.631 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices/list/overdue [36m304[0m 40.036 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 69.063 ms - -[0m
+[0mPOST /api/auth/sync [32m200[0m 80.553 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 505.342 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 43.541 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 48.255 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 28.794 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 35.915 ms - 531[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPUT /api/auth/me [32m200[0m 103.261 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/auth/me [32m200[0m 39.582 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.792 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 337.545 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 315.274 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPUT /api/auth/me [32m200[0m 310.271 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/auth/me [32m200[0m 30.630 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 43.701 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 51.507 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 44.584 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 298.954 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [36m304[0m 38.881 ms - -[0m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [36m304[0m 45.908 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [36m304[0m 45.256 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.477 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.337 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 344.110 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 348.772 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.905 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 295.511 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 305.942 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 56.616 ms - 534[0m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 62.884 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.176 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 12.001 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 353.596 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 355.031 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.354 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 38.366 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 303.131 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices/list/overdue [36m304[0m 28.488 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 32.753 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 45.083 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 52.748 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 192.920 ms - 534[0m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 201.493 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.108 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 30.452 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 28.986 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.519 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.513 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.848 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.482 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.583 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.471 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.599 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.650 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 16.672 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.662 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.758 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.411 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.871 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.654 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.398 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 13.796 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.564 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.338 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.198 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.444 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.541 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 645.419 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 559.370 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.311 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.412 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.648 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.645 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.474 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.861 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.569 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.703 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.929 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 13.028 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 12.090 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 544.469 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 545.396 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.520 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.657 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.538 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.119 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.748 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.633 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.603 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.666 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 98.699 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 303.735 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 307.152 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices/list/overdue [36m304[0m 313.277 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 35.728 ms - 534[0m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 45.613 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.102 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.802 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.682 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.414 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.646 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.645 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.943 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.506 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.419 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.682 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.715 ms - -[0m
+[2m4:32:44 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Settings.tsx, /src/index.css[22m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.258 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.252 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[0mGET /api/invoices/list/overdue [36m304[0m 407.427 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 431.385 ms - -[0m
+[0mPOST /api/auth/sync [32m200[0m 350.942 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 447.146 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 29.443 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 87.266 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 59.859 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 58.711 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices/list/overdue [36m304[0m 31.909 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 28.281 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 45.001 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 299.449 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.751 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[dashboard] user=50560fb9-0187-43b8-ba7e-8c631d59ba0f invoices=1 payments=0 reminders=0
+[0mGET /api/dashboard [36m304[0m 60.705 ms - -[0m
+[0mPOST /api/auth/sync [32m200[0m 97.160 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 299.635 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices/list/overdue [36m304[0m 307.252 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.914 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.308 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.150 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 345.384 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 354.375 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.297 ms - -[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 35.626 ms - 534[0m
+[0mPOST /api/auth/sync [32m200[0m 37.343 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.366 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f [32m200[0m 2.773 ms - 693[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 299.058 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 303.974 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 219.696 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 322.301 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 48.182 ms - 534[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [32m200[0m 296.669 ms - 534[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 2.086 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.882 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.657 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.592 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.502 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.722 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 1.530 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.223 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 10.539 ms - -[0m
+[90m4:41:21 AM[39m [96m[tsx][39m [95mchange[39m in [92m./backend/routes/index.ts[39m [33mRestarting...[39m
+c◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+Server running on port 3001
+API Routes at /api
+[db] ✅ Connected to PostgreSQL — 15 tables in public schema
+[90m4:41:28 AM[39m [96m[tsx][39m [95mchange[39m in [92m./backend/routes/index.ts[39m [33mRestarting...[39m
+c◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Server running on port 3001
+API Routes at /api
+[db] ✅ Connected to PostgreSQL — 15 tables in public schema
+[2m4:41:43 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/OnboardingFlow.tsx, /src/index.css, /src/pages/Settings.tsx[22m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 15.008 ms - -[0m
+[0mGET /api/invoices/public/9717fac3368b60c426b4158fbf91c62fb1f61b7f/messages [36m304[0m 11.511 ms - -[0m
+[2m4:43:34 AM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Settings.tsx, /src/index.css[22m
+[0mnpm run dev:api exited with code SIGHUP[0m
+[0m-->[0m [0mSending SIGTERM to other processes..[0m
+[0mvite exited with code SIGHUP[0m

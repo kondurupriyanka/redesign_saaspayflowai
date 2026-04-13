@@ -1,0 +1,26 @@
+<svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#B3FF3F" />
+      <stop offset="100%" stopColor="#7FFF00" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Left circle with down arrow -->
+  <circle cx="70" cy="100" r="55" fill="url(#greenGradient)" opacity="0.95"/>
+  
+  <!-- Right circle with up arrow -->
+  <circle cx="130" cy="100" r="55" fill="url(#greenGradient)" opacity="0.95"/>
+  
+  <!-- Down arrow on left circle -->
+  <g>
+    <path d="M 70 70 L 70 110" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 55 95 L 70 115 L 85 95" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  
+  <!-- Up arrow on right circle -->
+  <g>
+    <path d="M 130 130 L 130 90" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 115 105 L 130 85 L 145 105" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

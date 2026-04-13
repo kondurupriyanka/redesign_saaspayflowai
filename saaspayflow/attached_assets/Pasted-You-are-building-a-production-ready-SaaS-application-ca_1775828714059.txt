@@ -1,0 +1,224 @@
+You are building a production-ready SaaS application called PayFlow AI.
+
+The goal is to create a real, secure system for freelancers to manage clients, invoices, payments, and reminders.
+
+Do NOT focus on UI redesign. Focus on functionality, correctness, validation, and real-world usage.
+
+---
+
+CORE MODULES:
+
+1. Clients
+2. Invoices
+3. Payments
+4. Reminders
+5. Settings (branding + payment methods)
+6. Client portal
+
+---
+
+1. CLIENT SYSTEM
+
+* Fields:
+  id, name, email, phone (optional)
+
+* Validation:
+
+  * name required
+  * email must be valid format
+
+---
+
+2. PAYMENT METHODS (GLOBAL SUPPORT)
+
+Allow users to store their own payment methods:
+
+* UPI (India)
+* Bank transfer (account number, IFSC/IBAN)
+* PayPal email
+* Custom method
+
+Validation:
+
+* UPI must match pattern (text@text)
+* Email must be valid
+* Bank fields must not be empty
+
+These methods must be shown in:
+
+* invoice view
+* client portal
+
+---
+
+3. INVOICE SYSTEM (CORE ENGINE)
+
+Each invoice must include:
+
+* id
+* client_id
+* total_amount
+* amount_paid (default 0)
+* due_date
+* status (auto-calculated)
+
+Validation before creating:
+
+* client must exist
+* total_amount > 0
+* due_date must be valid
+
+---
+
+4. STATUS LOGIC
+
+Auto-calculate:
+
+* Pending → amount_paid == 0
+* Partial → amount_paid < total_amount
+* Paid → amount_paid == total_amount
+* Overdue → due_date passed AND not fully paid
+
+---
+
+5. PAYMENT SYSTEM
+
+Create payments table:
+
+* id
+* invoice_id
+* amount
+* date
+* method
+
+Features:
+
+* Add “Add payment” button
+* Allow partial payments
+* Prevent overpayment (amount_paid cannot exceed total)
+
+On payment:
+
+* Update invoice amount_paid
+* Recalculate status
+
+---
+
+6. PAYMENT HISTORY
+
+Inside invoice:
+
+* Show timeline:
+
+  * payment amount
+  * date
+* Show remaining balance
+
+Inside client page:
+
+* Total billed
+* Total paid
+* Outstanding
+* Last payment date
+
+---
+
+7. CLIENT PORTAL (SECURE)
+
+Create token-based access:
+
+* unique URL per invoice
+
+Portal must show:
+
+* invoice amount
+* due date
+* status
+* remaining amount
+* payment methods
+
+Do NOT show “Access expired” for valid tokens
+
+---
+
+8. REMINDER SYSTEM
+
+Manual:
+
+* Button: “Send reminder”
+* Generate message:
+  includes invoice details + portal link
+
+Validation:
+
+* cannot send reminder if invoice is fully paid
+
+Store reminder logs:
+
+* invoice_id
+* date
+* type
+
+Prepare for future:
+
+* email automation
+* WhatsApp API
+
+---
+
+9. EXPORT SYSTEM
+
+Allow:
+
+* Download client report (PDF / CSV)
+
+Include:
+
+* invoices
+* payment status
+* totals
+
+---
+
+10. BRANDING
+
+In settings:
+
+* business name
+* logo upload
+* footer note
+
+Apply to:
+
+* invoices
+* portal
+
+---
+
+11. SECURITY & VALIDATION
+
+MUST enforce:
+
+* No invoice with zero amount
+* No invalid email
+* No invalid payment details
+* No overpayment allowed
+* All calculations must be dynamic (no hardcoded values)
+
+---
+
+12. REMOVE UNUSED FEATURES
+
+Disable:
+
+* Projects module
+* Fake analytics
+* Placeholder AI features
+
+---
+
+GOAL:
+
+Build a reliable, secure, real-world SaaS product that helps freelancers track payments and get paid faster.
+
+The system must reduce manual follow-ups and prevent errors in financial tracking.

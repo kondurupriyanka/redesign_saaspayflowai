@@ -1,0 +1,441 @@
+
+> vite_react_shadcn_ts@0.0.0 dev
+> concurrently --kill-others --prefix none "npm run dev:api" "vite"
+
+[1G[0K
+> vite_react_shadcn_ts@0.0.0 dev:api
+> cross-env API_PORT=3001 tsx watch backend/server.ts
+
+
+  [32m[1mVITE[22m v5.4.19[39m  [2mready in [0m[1m172[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5000[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.31.65.130:[1m5000[22m/[39m
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Server running on port 3001
+API Routes at /api
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader [90m(file:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:342:13[90m)[39m
+    at wrappedValidations.<computed> [as xForwardedForHeader] [90m(file:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:656:22[90m)[39m
+    at Object.keyGenerator [90m(file:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:759:20[90m)[39m
+    at [90mfile:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:823:32
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async [90mfile:///home/runner/workspace/saaspayflow/[39mnode_modules/[4mexpress-rate-limit[24m/dist/index.mjs:801:5 {
+  code: [32m'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR'[39m,
+  help: [32m'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'[39m
+}
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 1716.135 ms - 45[0m
+[0mPOST /api/auth/sync [33m400[0m 1683.073 ms - 45[0m
+[0mPOST /api/auth/sync [33m400[0m 1688.716 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 96.684 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 53.906 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 51.333 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 196.411 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 384.828 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 70.922 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 59.430 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 57.197 ms - 48[0m
+[0mGET /api/payments/pending-client [33m400[0m 64.080 ms - 56[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 65.895 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 65.357 ms - 53[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 348.485 ms - 48[0m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 361.307 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 56.495 ms - 53[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 52.120 ms - 48[0m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 63.642 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 54.089 ms - 53[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[0mGET /api/invoices [33m400[0m 51.378 ms - 48[0m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 53.149 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[0mGET /api/payments [33m400[0m 55.324 ms - 48[0m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments/pending-client [33m400[0m 49.354 ms - 56[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 53.000 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 47.917 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 50.386 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 51.657 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 49.714 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 60.384 ms - 48[0m
+[0mGET /api/payments/pending-client [33m400[0m 70.490 ms - 56[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 45.717 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[0mGET /api/billing/subscription [33m400[0m 50.219 ms - 53[0m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 60.279 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 341.466 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 42.418 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 53.774 ms - 53[0m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 54.519 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 44.384 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 53.062 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 44.030 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[0mGET /api/clients?limit=200 [33m400[0m 69.460 ms - 47[0m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 84.867 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 65.423 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 319.548 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 61.761 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 319.088 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 49.492 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 78.554 ms - 47[0m
+[0mPOST /api/auth/sync [33m400[0m 73.641 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 64.193 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 371.836 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 455.225 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 57.054 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 69.040 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 54.396 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 50.034 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 52.060 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 58.522 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 75.056 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 53.772 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 49.697 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 48.592 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 54.016 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 61.628 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 56.755 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 44.017 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 57.306 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 48.418 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 52.716 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 46.326 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 62.181 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 105.914 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 53.014 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 343.086 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?limit=200 [33m400[0m 49.214 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 45.780 ms - 48[0m
+[0mGET /api/payments/pending-client [33m400[0m 51.908 ms - 56[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 50.304 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 49.629 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 322.078 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[0mPOST /api/auth/sync [33m400[0m 61.602 ms - 45[0m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments/pending-client [33m400[0m 78.552 ms - 56[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 100.766 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/payments [33m400[0m 57.222 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 75.709 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 54.846 ms - 53[0m
+[0mGET /api/invoices [33m400[0m 66.426 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 316.232 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 53.018 ms - 53[0m
+[0mGET /api/invoices [33m400[0m 48.385 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 59.427 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 47.745 ms - 53[0m
+[0mGET /api/invoices [33m400[0m 61.214 ms - 48[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 58.041 ms - 47[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/billing/subscription [33m400[0m 56.794 ms - 53[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/invoices [33m400[0m 74.050 ms - 48[0m
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mGET /api/clients?search=%5Bobject%20Object%5D&limit=200 [33m400[0m 89.025 ms - 47[0m
+[0mPOST /api/auth/sync [33m400[0m 83.892 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 66.192 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 62.445 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 321.963 ms - 45[0m
+[auth] Token validated — user_id: 50560fb9-0187-43b8-ba7e-8c631d59ba0f | email: kondurupriyanka8@gmail.com
+[auth] Profile lookup failed (non-fatal): relation "users" does not exist
+[auth] req.user set — plan: growth | isOwner: [33mtrue[39m
+[0mPOST /api/auth/sync [33m400[0m 471.049 ms - 45[0m

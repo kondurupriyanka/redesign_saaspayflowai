@@ -1,0 +1,137 @@
+You are upgrading an existing SaaS project (PayFlow AI).
+
+IMPORTANT:
+A complete PostgreSQL database already exists and MUST be reused exactly as-is.
+
+DO NOT:
+
+* Create new tables
+* Modify schema
+* Run migrations
+* Drop or recreate anything
+
+USE EXISTING TABLES:
+clients
+invoices
+invoice_items
+invoice_messages
+invoice_payments
+invoice_requests
+invoice_activity
+client_portal_tokens
+notifications
+payments
+reminders
+subscriptions
+users
+
+---
+
+GOAL:
+
+Fix the application so it correctly connects to the existing database and uses real data.
+
+---
+
+1. DATABASE CONNECTION
+
+* Use process.env.DATABASE_URL
+* Do NOT override or hardcode DB config
+* Ensure all queries use schema "public"
+* Test connection with:
+  SELECT * FROM clients LIMIT 1
+
+---
+
+2. FIX ALL API QUERIES
+
+Ensure backend APIs correctly fetch from existing tables:
+
+* GET /clients → from clients table
+* GET /invoices → from invoices
+* GET /messages → from invoice_messages
+* GET /payments → from invoice_payments
+
+If any query fails:
+→ fix query, not database
+
+---
+
+3. DO NOT USE MOCK DATA
+
+* Remove any dummy or fallback data
+* UI must reflect real DB values
+
+---
+
+4. FIX CLIENTS PAGE ERROR
+
+Error: "relation clients does not exist"
+
+Fix by:
+
+* ensuring correct DB connection
+* using public.clients if needed
+* removing any incorrect schema config
+
+---
+
+5. DATA FLOW (CRITICAL)
+
+Ensure:
+
+Client → Invoice → Messages → Payments
+
+All connected via:
+
+* client_id
+* invoice_id
+
+---
+
+6. FRONTEND SYNC
+
+After every action:
+
+* refetch data OR poll every 5–10 seconds
+
+Ensure:
+
+* dashboard updates
+* client portal updates
+
+---
+
+7. DEBUG MODE
+
+Add logs:
+
+* DB connection success
+* query results
+* API errors
+
+---
+
+8. DO NOT CHANGE UI DESIGN
+
+Only fix:
+
+* data binding
+* broken flows
+* missing connections
+
+---
+
+FINAL RESULT:
+
+* Clients page loads real clients
+* Invoices show correct data
+* Messages sync both ways
+* Payments display correctly
+* No "relation does not exist" errors
+* No empty UI if data exists
+
+---
+
+This is a backend/data fix only.
+Do not redesign UI.

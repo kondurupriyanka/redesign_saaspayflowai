@@ -1,0 +1,360 @@
+Fix and upgrade PayFlow AI into a production-ready SaaS system.
+
+Do NOT redesign everything. Improve current system with real functionality, data flow, and reliability.
+
+---
+
+CORE RULES:
+
+* Every UI action MUST connect to backend
+* No fake or placeholder features
+* Keep code modular and efficient
+* Minimize unnecessary API calls (optimize Replit usage)
+
+---
+
+1. TWO-WAY MESSAGING (CRITICAL)
+
+Implement full real-time messaging:
+
+* Store in: invoice_messages
+* Both client and freelancer can send messages
+* Messages must appear in BOTH:
+
+  * client portal
+  * freelancer dashboard
+
+Sync behavior:
+
+* After sending message → refetch messages
+  OR
+* Poll every 5–10 seconds
+
+Ensure:
+
+* freelancer replies visible to client
+* client messages visible instantly
+
+---
+
+2. PAYMENT SYSTEM (CLARITY + REAL USAGE)
+
+Remove confusion.
+
+DEFAULT (recommended for now):
+
+Allow only:
+
+* UPI
+* Bank Transfer
+* PayPal
+* Cash
+
+Remove Card OR show disabled message:
+"Online payments coming soon"
+
+---
+
+3. PAYMENT INSTRUCTIONS (DYNAMIC)
+
+When client selects method:
+
+UPI:
+
+* show UPI ID
+* generate QR code from UPI ID
+
+Bank:
+
+* show:
+  account name
+  account number
+  IFSC
+
+PayPal:
+
+* show PayPal email
+
+Cash:
+
+* show simple instruction text
+
+IMPORTANT:
+
+* All data must come from Settings
+
+---
+
+4. PAYMENT CONFIRMATION FLOW
+
+Client side:
+
+* enters amount
+* selects method
+* adds reference
+* submits
+
+Save in:
+invoice_payments
+
+status = "pending"
+
+Freelancer side:
+
+* show "Client payment submission"
+* allow confirm
+
+On confirm:
+
+* mark payment = completed
+* update invoice status:
+  partial / paid
+
+---
+
+5. SETTINGS VALIDATION (CRITICAL)
+
+Do NOT allow empty or invalid data.
+
+Validate:
+
+UPI:
+
+* required format
+
+Bank:
+
+* all fields required together
+
+PayPal:
+
+* valid email
+
+Show inline error messages
+
+Only save valid data
+
+---
+
+6. REAL-TIME DATA SYNC
+
+After ANY action:
+
+* refetch invoice data
+
+OR
+
+Implement polling:
+
+* every 5–10 seconds
+
+Ensure sync between:
+
+* client portal
+* freelancer dashboard
+* payments page
+
+---
+
+7. REMINDER SYSTEM (REAL IMPLEMENTATION)
+
+Implement actual sending:
+
+EMAIL:
+
+* use Resend or Nodemailer
+
+WHATSAPP:
+
+* use Twilio WhatsApp API
+
+SMS:
+
+* use Twilio SMS
+
+Store all reminders in:
+invoice_activity
+
+---
+
+8. NOTIFICATION SYSTEM
+
+Trigger notifications for:
+
+* invoice viewed
+* payment submitted
+* payment confirmed
+* message received
+* extension requested
+
+Send via email based on user settings
+
+---
+
+9. INVOICE LINK MANAGEMENT
+
+When invoice is sent:
+
+* generate unique token
+* store in invoice_links
+
+Freelancer dashboard:
+
+* show "Copy link"
+* allow re-sharing anytime
+
+---
+
+10. EXTENSION REQUEST SYSTEM
+
+Client:
+
+* submits request with reason + message
+
+Save in:
+invoice_requests
+
+Freelancer:
+
+* view request
+* approve / reject
+
+Update status accordingly
+
+---
+
+11. ACTIVITY TIMELINE
+
+Track everything in:
+invoice_activity
+
+Include:
+
+* invoice created
+* invoice sent
+* messages
+* payment submitted
+* payment confirmed
+* extension requests
+* reminders sent
+
+Show timeline in freelancer invoice page
+
+---
+
+12. PAYMENTS PAGE IMPROVEMENT
+
+Display:
+
+* total received
+* confirmed payments
+* pending confirmations
+* payment method
+* reference
+
+---
+
+13. DASHBOARD FIX
+
+Ensure:
+
+* invoice status updates instantly
+* payment updates reflect immediately
+* pending vs completed visible
+
+---
+
+14. UI CLEANUP (IMPORTANT)
+
+Fix consistency:
+
+* Remove extra colors (blue/orange)
+
+* Keep only:
+  green (primary)
+  gray (neutral)
+  red (error)
+
+* Icon size: 16–18px
+
+* Input height: 48px
+
+* Reduce padding and spacing
+
+---
+
+15. DROPDOWN FIX
+
+Replace all <select> with custom dropdown:
+
+* dark background (#111714)
+* green hover (#7CFF5B)
+* no white backgrounds
+* consistent styling
+
+---
+
+16. BILLING SYSTEM
+
+If Paddle not configured:
+
+* disable upgrade buttons
+
+Else:
+
+* connect Paddle API
+* define plans:
+  Pro ($29)
+  Growth ($49)
+
+Remove error modal
+
+---
+
+17. FILE DOWNLOAD (BILLING)
+
+Implement:
+
+* generate PDF invoice
+* attach to billing history
+* enable download
+
+---
+
+18. SECURITY (MANDATORY)
+
+* sanitize all inputs
+* prevent SQL injection
+* prevent XSS
+* use environment variables for secrets
+* enable HTTPS
+* add rate limiting
+
+---
+
+19. ANALYTICS + MONITORING
+
+Add:
+
+* PostHog → user tracking
+* Sentry → error tracking
+
+Track:
+
+* invoice creation
+* payment events
+* user actions
+
+---
+
+GOAL:
+
+Make PayFlow AI:
+
+* fully functional (no fake UI)
+* trustworthy for payments
+* clean and minimal UI
+* real client ↔ freelancer system
+* production-ready SaaS usable globally
+
+---

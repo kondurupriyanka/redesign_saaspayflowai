@@ -1,0 +1,108 @@
+now i m giving u all the mistakes and things to fix so that based on that i need prompts that will really do this clear stuffs and much better results 
+
+i see as inside this entering the ai extraction where freelancers has clients data and there money etc whatever maybe how name email contact numbers and money along with there progress and even few maybe will be paid and still some of the pending amount will be there and even there must be any file format accepting like csv spreadsheets excel types and i see here its only accepting the images , but for freelancers they may store there data in various other type ? and the top symbol is basic i need that also to be change the icons more professionally 
+
+i can see while adding clients details also its getting error 
+
+and inside remainder sections there is not the fonts and style is not proper and even i see the remainders sections is not proper i need more details and which will be useful , and why that trigger pilot and xl exporter 
+
+ok now i m coming up with detailed sections to be improved or whatever proper changes and useful to be and even exactly without confusion for users they must use this saas website properly 
+
+1st one is inside the dashboard i dont feel like its professional the fonts and the information is not proper and i feel like its so basic how childs messup with like that i need clean understanding and professional ones and why to use that sections those answers must be satisfied not simply adding whatever ai gives i need proper sections what exactly helps users to understand and useful 
+
+2nd one inside analytics sections i see like all the features which needed to be upgraded then only can be used 
+features are inside those -
+
+Unlock Professional Analytics
+Get deep insights into client behavior, revenue trends, and payment reliability. Upgrade to Pro to grow your business with data.
+Historical payment behavior per client
+12-month revenue trend forecasting
+Advanced reliability scores for every client
+CSV & PDF data exports
+
+while clicking on upgrade sections i dont see anything no action is taken nothing just static
+
+and even after clearing this upgrading , inside that i need this features whichever mentioned before upgrading must be shown and working properly excellently and amazingly and along with users must feel like worth paying that 999 ruppees worth really there money must be satisfied and inside those features everything must be working and worthy 
+
+3rd sections on clients - i can see there is option to add clients and while adding clients i see there is failed error while adding details 
+and i see the sort billed scored options which are smaller i need in visible size for users to use them and whats score here implies i didnt understand why thats needed and i need like what actually its used for 
+
+
+4th section Invoices - I can see there is invoice adding option inside invoice and also outside the dashboard as after notifications bell, as new invoice button 
+
+after clicking on that invoice i see theres an ai extraction which takes input as txt imgs- png jpeg only , but here issue is most freelancers use the pdf, excel, spreadsheet, csv, or any other type of formats files for uploading inside and that issue must be resolved and even along with ai inside must extract that information and definetely fill the details based on the information provided - this feature is for users /freelancers who cant type everything manually and they may need this so by uploading those informations ai helps in extraction and fillup those section easily and even if there are many clients informations like 3 to 10 upto 15 also those ai must carefully extract them column and row wise properly and fill up those and where users may reverify them and add them as clients details and 
+in the section where  "I'll define parameters manually" i see all those about invoice engineering as i see in the picture go through that properly 
+
+
+5th section named Projects -  inside projectname filling i see add clients and where theres issue inside that about the clients details not being able to upload and as well this also shows blocking me to select which client and there project , projectname also inside that adding one is not proper i see always missing those typography and fontstyle and there sizes and inconsistency throughout the website i need that also to be fixed and along with the light color sections features and options which rewitten is sometimes not shown properly it must be like visible its more thinner and lighter in color where the screen when user is outside day light sunlight it cant be seen properly even that issue also must be addressed well indoor and outdoor this must be visible properly and understanding users mostly freelancers might be experienced professionals ones by the age 20 to40+ , research that also and how they like based on that i need clean changes to be made insid emy app with existing themed but even make it more visibile useful and worthful and grateful
+
+
+and link to invoice option chcek that carefull i feel its messed up 
+
+and even the options like in project bar all active completed and along with other 2 icons i can see which are why needed and whats really helps with
+
+
+6th the Remainders section - i need like why this whats useful must be isnide this and along the font size and properly fonts
+
+7th last one is Settings sections - go through the fonts form inside that seen the missing alignement and options also why to use etc i need those and why needed user profile what needed what donest needed and inside the 
+notofications also check that throughly why uses and why not 
+billing section the features are different inside and outside the landing page and while upgrading the pro and upgrading to the agency sefction there showing error contact support 
+
+for setting notiifactions billing and profile user i will send those screenshots in my next ones 
+
+and i need u to excatly go through this entire one and fix my sections every ones every page one by one a=until and unless completeing the 1 page dont go to other page check every corner and tell me whats to plan and even 
+
+i can sense i m only confused to use my saas app its like navigating and clients and invoices and projects why seperately and whats main painpoint solving i m really confused and along with all the above ones i said, i m using codex and i need reallly the 0.1% , top 1% saas website with clean and useful features and no confusion making things etc i need that really u must gather that and go through my screenshots properly and make it done definetly i need ur 1000% efforts and as a senior product manager, UI UX developer, frontedn developer, database engineer, ai developer, ai engineer, and even if needed a=what like pinecode and etc can use inside my website and even like properly clients informations and when updated and ai extractions a=etc rag based model type customly based on that trained llm etc  , i need u to go and thing edge verified and scalablity and system desig nand system architechture and backend developer etc
+
+A successful SaaS founder needs a blend of technical understanding, marketing acumen, sales ability, and deep product empathy to identify and solve customer problems. Core skills include product management (prioritizing features), rapid customer acquisition (SEO, content, outbound), understanding SaaS metrics (MRR, churn), and long-term strategic planning
+
+Core Product Owner Skills
+Strategic & Visionary Thinking: Defining the product roadmap and aligning it with business goals.
+Prioritization & Decision-Making: Using data analysis and research to prioritize the backlog, saying "no" to non-priorities, and making quick, empowered decisions.
+Communication & Collaboration: Acting as the mediator between stakeholders, users, and development teams.
+Customer Empathy: Focusing on customer delight, user experience, and creating products that meet real user needs.
+
+Web developers require a mix of technical proficiency in HTML, CSS, JavaScript, and backend languages (Node.js, Python, PHP), alongside version control (Git) and database management (SQL, MongoDB). Key soft skills include problem-solving, communication, and adaptability to ensure secure, responsive, and user-friendly web applications. 
+devry.edu
+devry.edu
+ +7
+Core Technical Skills
+Front-End Technologies: Mastery of HTML5, CSS3, and JavaScript is mandatory to create functional, styled, and interactive user interfaces.
+Back-End Languages: Proficiency in server-side languages such as Node.js, Python, PHP, Java, or Ruby.
+Frameworks & Libraries: Experience with front-end frameworks (React, Angular, Vue.js) and backend frameworks.
+Database Management: Knowledge of SQL (MySQL, PostgreSQL) and NoSQL (MongoDB) databases to store and manage data.
+Version Control: Proficiency in Git for tracking changes and collaborating.
+API Development: Familiarity with RESTful APIs and GraphQL. 
+GeeksforGeeks
+GeeksforGeeks
+ +7
+Essential Non-Technical & Specialized Skills
+Responsive Design: Ensuring websites function seamlessly on mobile, tablet, and desktop.
+Problem-Solving & Debugging: Ability to identify errors and fix issues in code efficiently.
+Web Security: Basic understanding of security protocols (HTTPS, SSL/TLS) to protect user data.
+Communication: Ability to explain technical concepts to non-technical stakeholders.
+SEO Fundamentals: Understanding Search Engine Optimization basics. 
+devry.edu
+devry.edu
+ +5
+Required Tools & Knowledge
+CMS Familiarity: Working with systems like WordPress.
+Web Servers: Knowledge of server administration (Apache, Nginx).
+Testing: Implementing testing processes to ensure quality
+
+Core Technical & Design Skills
+Visual Design & Principles: Mastery of layout, typography, color theory, and wireframing.
+Design Software: Proficiency in tools like Figma, Adobe XD, Photoshop, and Illustrator.
+Front-End Technologies: Solid understanding of HTML, CSS, and basic JavaScript.
+Responsive Design: Creating websites that adapt to various devices (mobile, tablet, desktop).
+UX/UI Design: Focus on user experience (UX) and user interface (UI) to ensure intuitive, accessible, and engaging layouts.
+
+Core Backend Developer Skills
+Programming Languages: Mastery of languages such as Python, Java, JavaScript (Node.js), PHP, Ruby, or Go is essential for building server-side logic.
+Database Management: Proficiency in relational databases (MySQL, PostgreSQL) and NoSQL options (MongoDB, Cassandra) is required to manage and retrieve data efficiently.
+API Development & Integration: Designing and implementing RESTful APIs and GraphQL to facilitate communication between client and server, often using tools like Postman or Swagger.
+Version Control (Git): Managing codebase changes and collaborating using systems like Git.
+Cloud & Deployment: Familiarity with containerization tools (Docker, Kubernetes) and cloud services (AWS, Azure) for deployment and infrastructure management.
+System Design & Architecture: Understanding microservices, load balancing, and building scalable, fault-tolerant applications.
+Caching & Optimization: Using techniques like Redis to improve application performance.
+Security Best Practices: Implementing authentication, authorization, and data encryption to secure user data

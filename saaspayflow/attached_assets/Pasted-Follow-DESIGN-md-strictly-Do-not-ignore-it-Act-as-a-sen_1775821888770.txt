@@ -1,0 +1,198 @@
+Follow DESIGN.md strictly. Do not ignore it.
+
+Act as a senior fintech product designer + frontend engineer (top 1%).
+
+Goal: Transform the existing dashboard into a clean, professional SaaS product UI. It must feel like Stripe, Linear, or Notion — not a student project.
+
+DO NOT redesign randomly.
+DO NOT add visual noise.
+DO NOT increase complexity.
+
+---
+
+### 1. Typography (highest priority)
+
+Fix all typography across dashboard:
+
+* Use sentence case everywhere
+
+* Remove ALL CAPS (except tiny labels if absolutely needed)
+
+* Apply strict hierarchy:
+
+  H1 → 32px bold
+  H2 → 24px semibold
+  H3 → 18px medium
+  Body → 14px
+  Small/meta → 12px
+
+* Reduce description text size
+
+* Keep descriptions short (max 1 line)
+
+* Add proper spacing between:
+
+  * heading → description (8–12px)
+  * sections → sections (24–32px)
+
+Typography must feel:
+
+* calm
+* readable outdoors
+* high contrast but not harsh
+
+---
+
+### 2. Content Simplification
+
+Rewrite ALL text to be:
+
+* short
+* direct
+* human
+* financial-focused
+
+Examples:
+
+❌ "Create your first invoice to unlock reminders and insights"
+✅ "Create your first invoice"
+
+❌ "See what is working and where cash is leaking"
+✅ "Track your cash flow"
+
+Avoid:
+
+* buzzwords
+* long sentences
+* marketing tone
+
+---
+
+### 3. Dashboard Structure (keep layout, improve clarity)
+
+Do NOT redesign layout structure. Only refine.
+
+Improve:
+
+* spacing consistency (8 / 16 / 24 / 32 scale)
+* alignment
+* visual breathing space
+
+Make sections clearly separated.
+
+---
+
+### 4. Cards (make them professional)
+
+Fix all cards:
+
+* consistent padding (16–20px)
+* remove extra gradients / glow if unnecessary
+* keep subtle borders only
+* no heavy shadows
+
+Each card must show:
+
+* clear title
+* one main value
+* optional small context
+
+No clutter.
+
+---
+
+### 5. Replace "complex feeling" UI with human clarity
+
+Even if technically correct, UI must feel simple.
+
+Prioritize:
+
+* clarity over design tricks
+* readability over animation
+* function over decoration
+
+---
+
+### 6. Data Representation (IMPORTANT)
+
+Replace confusing visuals with human-friendly ones:
+
+Instead of:
+
+* complex charts
+* decorative elements
+
+Use:
+
+* payment summary (Total, Pending, Overdue, Collected)
+* simple progress indicators
+* clear numeric emphasis
+
+Everything should be understandable in 3 seconds.
+
+---
+
+### 7. Empty States
+
+Replace all empty states:
+
+❌ "No data yet"
+✅ "No invoices yet. Create your first invoice."
+
+Always guide user to next action.
+
+---
+
+### 8. Buttons & Actions
+
+Keep only key actions visible:
+
+* Add client
+* Create invoice
+* Track payments
+
+Buttons:
+
+* Primary → green
+* Secondary → subtle outline
+
+No extra buttons.
+
+---
+
+### 9. Tone
+
+The product must feel:
+
+* trustworthy
+* calm
+* premium
+* financial
+
+NOT:
+
+* flashy
+* playful
+* startup hype
+* student project
+
+---
+
+### 10. Final Check
+
+Before finishing:
+
+* Remove all visual clutter
+* Ensure consistent spacing
+* Ensure consistent font usage
+* Ensure everything aligns perfectly
+* Ensure readability in low light and bright environments
+
+---
+
+Output:
+
+Update existing dashboard code only.
+Do not rewrite entire app.
+Do not break functionality.
+Focus on refinement and professionalism.

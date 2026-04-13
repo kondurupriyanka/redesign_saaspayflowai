@@ -1,0 +1,188 @@
+You are a senior full-stack engineer rebuilding and fixing an existing SaaS product called PayFlow AI.
+
+Your goal:
+Transform the current broken and confusing system into a clean, production-ready freelancer invoicing platform.
+
+IMPORTANT:
+Do NOT rebuild blindly. Analyze existing code and fix it systematically.
+
+---
+
+PRODUCT PURPOSE:
+PayFlow AI helps freelancers:
+
+* Add clients
+* Create invoices
+* Send invoice links
+* Get paid
+* Track payments
+* Send reminders automatically
+
+---
+
+CORE FLOW (MUST WORK END-TO-END):
+
+Freelancer:
+Client → Invoice → Send → Client pays → Status updates → Reminder if unpaid
+
+Client:
+Open link → View invoice → Pay → Done
+
+---
+
+PHASE 1 — DATABASE + BACKEND FIX
+
+1. Ensure database schema matches:
+
+* clients: full_name, email, phone, company_name
+* invoices: title, total_amount, status, due_date, access_token
+* payments: amount, payment_id, status
+* reminders: sent_at, status
+
+2. Fix all schema mismatches:
+
+* replace "company" with "company_name"
+* ensure foreign keys are correct
+
+3. Fix API:
+
+* createClient
+* createInvoice
+* fetchClients
+* fetchInvoices
+
+4. Fix "Failed to fetch":
+
+* correct API base URL
+* fix CORS
+
+---
+
+PHASE 2 — CLIENTS MODULE
+
+* Fix Add Client (no errors)
+* Required: name, email
+* Save to DB correctly
+* Fetch and display clients
+
+Do NOT move forward until this works fully
+
+---
+
+PHASE 3 — INVOICE SYSTEM
+
+* Remove all confusing language
+
+* Rename fields:
+
+  * mission → invoice title
+  * vector → item
+  * liquidation → total
+
+* UI:
+
+  * single column
+  * simple layout
+  * line items
+  * auto total calculation
+
+* Add AI extraction:
+
+  * support PDF, CSV, Excel, images
+  * extract client + items
+  * prefill form
+  * allow editing
+
+---
+
+PHASE 4 — CLIENT PORTAL
+
+* Create page: /invoice/:id?token=xyz
+
+* Validate token
+
+* Show:
+
+  * client name
+  * items
+  * total
+  * due date
+  * status
+
+* Add:
+
+  * Pay Now button
+  * Download PDF
+
+---
+
+PHASE 5 — PAYMENT SYSTEM
+
+* Integrate Razorpay (or mock if not available)
+
+* Create:
+  POST /create-payment
+  POST /verify-payment
+
+* On success:
+
+  * update invoice.status = "paid"
+  * insert into payments table
+
+---
+
+PHASE 6 — REMINDERS
+
+* Remove fake stats
+* Show real reminders
+* Add "Send Reminder" button
+* Link to invoice
+
+---
+
+PHASE 7 — DASHBOARD
+
+Show:
+
+* Total Earned
+* Pending
+* Overdue
+* Clients
+
+Add:
+
+* recent invoices table
+* quick actions
+
+---
+
+PHASE 8 — UI CLEANUP
+
+* Remove all jargon (mission, vector, etc)
+* Use simple SaaS language
+* Improve typography
+* ensure high contrast readability
+
+---
+
+PHASE 9 — ERROR HANDLING
+
+* Replace "Failed to fetch" with proper message
+* Show user-friendly errors
+* add loading states
+
+---
+
+RULES:
+
+* Fix one module at a time
+* Do not break working features
+* Always test data flow
+* Ensure frontend, backend, DB are consistent
+* Keep UI simple and professional
+
+---
+
+START:
+
+## Fix Clients module completely before moving to Invoices

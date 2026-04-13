@@ -1,0 +1,859 @@
+I've gone through every screenshot with a senior product manager + full-stack engineer lens. Here's the complete diagnosis and all prompts.
+
+**The core problem:** Your entire app still uses a military/tactical theme in the copy ("Transmission Logs", "Communication Ledger", "Silence in the Grid", "Mission Description", "Total Liquidation", "Append Vector") — this is completely wrong for freelancers who need simple, human, trustworthy language. Plus there are 3 critical DB bugs. Let me give you every prompt, page by page.
+
+---
+
+## 🔴 PROMPT 1 — Fix the #1 critical DB bug blocking everything
+
+```
+CRITICAL DATABASE FIX — PayFlow AI
+
+The entire app is broken because of a Supabase schema mismatch. 
+Error: "Could not find the 'company' column of 'clients' in the schema cache"
+
+STEP 1: Open Supabase Dashboard → Table Editor → clients table
+Check the actual column names. The frontend is using "company" but the real 
+column is likely "company_name".
+
+STEP 2: In your Supabase dashboard, run this migration SQL:
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS company_name TEXT;
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS phone TEXT;
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS whatsapp TEXT;
+
+STEP 3: Find every file that references the clients table and fix column names:
+- Search codebase for: .company (not company_name)
+- Search for: clients.company
+- Search for: select.*company.*from clients
+
+Replace all with the correct column names from your actual Supabase schema.
+
+STEP 4: Update the AddClientForm component. The form fields must map to:
+- full_name (text, required)
+- email (text, required) 
+- phone (text, optional)
+- whatsapp (text, optional)
+- company_name (text, optional) — NOT "company"
+
+STEP 5: After fixing, go to Supabase → API → reload schema cache
+(Or run: SELECT pg_notify('pgrst', 'reload schema') in SQL editor)
+
+STEP 6: Test by adding a client with name "Test User", email "test@test.com"
+It must save successfully and appear in the clients list.
+
+Do NOT change any UI. Just fix the database queries and column mappings.
+```
+
+---
+
+## 🔴 PROMPT 2 — Remove ALL military jargon from the entire app (single most impactful change)
+
+```
+FULL APP COPY CLEANUP — Remove all military/tactical jargon
+
+PayFlow AI is a payment tool for freelancers. The language must be simple, 
+warm, and professional. Do a global find-and-replace across ALL files:
+
+REPLACE THESE (exact text matches, case-insensitive search):
+
+"Transmission Logs" → "Reminders"
+"Communication Ledger" → "Payment Reminders"  
+"0 Packets Transmitted Successfully" → "0 reminders sent"
+"Silence in the Grid" → "No reminders yet"
+"Trigger Pilot" → "Create your first invoice"
+"No reminders yet. Create your first invoice to start." (keep this, it's fine)
+"RELAY SUCCESS" → "Delivery Rate"
+"AVG LATENCY" → "Avg. Response Time"
+"RESPONSE RATE" → "Open Rate"
+"SYSTEM UPTIME" → "Platform Uptime"
+"XLS EXPORT" → "Export to Excel"
+"RESET FILTERS" → "Clear Filters"
+"DISCOVERY: SEARCH ACROSS COMMUNICATION GRID..." → "Search reminders..."
+"Communication Grid" → "Payment Reminders"
+
+"Invoice Engineering" → "New Invoice"
+"Generate high-precision settlement requests with AI assistance." → "Create a professional invoice in seconds."
+"AI Invoice Extraction" → "Create Invoice from File"
+"Feed the system a contract, communication logs, or brief. Our neural engine will synthesize the metadata into a precise invoice draft." → "Upload a contract, email, or spreadsheet. Our AI will read it and fill in your invoice details automatically."
+"Initiate Document Uplink" → "Upload your file"
+"COMMAND OVERRIDE" → ""  (remove this label entirely)
+"Manual Entry Module" → "Fill in manually instead"
+"I'LL DEFINE PARAMETERS MANUALLY" → "Skip — I'll type it myself"
+"RELOAD AI ENGINE" → "Regenerate with AI"
+
+"Mission Description" → "Project / Work Description"
+"Settlement Deadline" → "Payment Due Date"
+"Currency Vector" → "Currency"
+"Line Item Distribution" → "Invoice Items"
+"1 VECTORS DEFINED" → "1 item added"
+"APPEND VECTOR" → "+ Add Item"
+"Strategic Notes" → "Notes"
+"All calculations are verified by the settlement protocol. Ensure the currency vector aligns with the mission objectives." → "Add any notes for your client here."
+"NET VALUE" → "Subtotal"
+"TAX OVERLOAD (%)" → "Tax (%)"
+"TOTAL LIQUIDATION" → "Total Amount Due"
+"SEND INVOICE" → "Send Invoice"
+"Hold as Draft" → "Save as Draft"
+
+"Project Mission Control" → "Projects"
+"Track milestones, monitor progress, and ensure timely delivery." → "Track your freelance projects and link them to invoices."
+"Launch New Mission" → "+ New Project"
+"No Active Missions" → "No projects yet"
+"The project board is clear. Initiate a new high-priority protocol to begin tracking." → "Start a project to track your work and tie it to an invoice."
+"Initialize First Program" → "+ Create your first project"
+"ALL" "ACTIVE" "COMPLETED" — keep these, they are correct
+
+"Financial Documentation" → "Invoices"
+"Monitor liquidation events and settlement timelines." → "Track what you've billed and what's been paid."
+"Search by ID or entity..." → "Search invoices..."
+
+"Liquidity Potential" → "Total Potential Revenue"
+"SETTLED VOLUME" → "Total Billed"
+"RELIABILITY SCORE" → "Pay Reliability"
+"LATENCY" → "Avg. Pay Time"
+
+"ENTITY" (in clients table header) → "Client"
+"CONTACT INFORMATION" → "Contact"
+
+After doing ALL replacements, verify no military/spy/hacker language remains anywhere in the UI. Check every page: Dashboard, Analytics, Clients, Invoices, Projects, Reminders, Settings.
+```
+
+---
+
+## 🟡 PROMPT 3 — Dashboard: professional redesign with real value
+
+```
+DASHBOARD REDESIGN — PayFlow AI
+
+The dashboard must immediately tell the freelancer what needs their attention 
+and what's going well. Redesign it with these sections:
+
+SECTION 1: TOP ALERT BAR (conditional — only show if there's something urgent)
+- If any invoice is overdue: red banner "You have X overdue invoices totaling ₹Y — Send a reminder"
+- If approaching due dates (within 3 days): yellow banner "X invoices due soon"
+- If nothing urgent: hide the banner entirely (don't show "NO URGENT COLLECTIONS RIGHT NOW" as a permanent label)
+
+SECTION 2: WELCOME HERO (only for empty state — 0 invoices)
+Keep "Start with your first invoice" but improve the copy:
+- Headline: "Get paid faster. Start here."
+- Subtext: "Add a client → Create an invoice → Send an automatic reminder"
+- Three buttons: "Add Client" (primary green), "Create Invoice" (outline), "See how it works" (text link)
+Remove the "Review Invoices" button when there are no invoices (it's confusing when empty)
+
+SECTION 3: 4 METRIC CARDS (always visible, even when empty showing ₹0)
+Rename and redesign:
+- Card 1: "Total Earned" — ₹0 — "All-time payments received" — trend arrow
+- Card 2: "Pending Payment" — ₹0 — "Awaiting payment from clients" — clock icon
+- Card 3: "Overdue" — ₹0 — "Past due date, needs follow-up" — warning icon (red when >0)
+- Card 4: "Reminders Sent" — 0 — "Auto-reminders sent this month" — bell icon
+
+SECTION 4: QUICK ACTION CARDS (only show when no data exists)
+Remove "ACTION" label — it means nothing. Redesign these as:
+- "Add your first client" — "Every invoice needs a client. Start here." → button: Add Client
+- "Create your first invoice" — "Bill your client professionally in 60 seconds." → button: New Invoice  
+- "Set up auto-reminders" — "Never chase a payment manually again." → button: Set Up
+- "View your analytics" — "See which clients pay late and why." → shows upgrade if free
+
+SECTION 5: RECENT ACTIVITY (show when data exists)
+- Recent invoices table: Client name | Amount | Status (badge) | Due date | Action button
+- Status badges: Draft (gray), Sent (blue), Paid (green), Overdue (red)
+
+SECTION 6: QUICK INSIGHTS (right column when data exists)
+- "Best paying client this month"
+- "Average payment time across all clients"  
+- "Most overdue invoice"
+
+TYPOGRAPHY FIXES FOR DASHBOARD:
+- Page title "Dashboard": 28px, font-weight: 600, color: white
+- Section labels: 12px, font-weight: 500, letter-spacing: 0.08em, uppercase, muted color
+- Metric amounts: 32px, font-weight: 700
+- Body text: 15px, font-weight: 400, line-height: 1.6
+- Remove ALL caps text from the hero section
+- The hero headline must be 40px max, not 60px — it's too large currently
+```
+
+---
+
+## 🟡 PROMPT 4 — Analytics: make the paywall work + real features
+
+```
+ANALYTICS PAGE FIX — PayFlow AI
+
+PART 1: FIX THE UPGRADE BUTTON (critical — currently does nothing)
+
+The "Upgrade Now" button on the Analytics paywall must:
+1. Navigate to /settings#billing (or /settings?tab=billing)
+2. Scroll to the pricing section automatically
+3. If Paddle is not yet integrated, show an upgrade modal with pricing and "Coming soon — join the waitlist" for now
+
+Code fix:
+// In Analytics.tsx, find the Upgrade Now button and add:
+onClick={() => navigate('/settings', { state: { openBilling: true } })}
+
+In Settings.tsx, check for this state on mount:
+const location = useLocation()
+useEffect(() => {
+  if (location.state?.openBilling) {
+    // scroll to billing tab and open it
+    setBillingTabOpen(true)
+  }
+}, [])
+
+PART 2: FREE TIER — SHOW A PREVIEW, NOT JUST A LOCK
+
+Instead of a full-page lock, show:
+- The analytics layout blurred/dimmed in the background
+- A transparent overlay with the upgrade card on top
+- This lets users SEE what they're missing before upgrading
+
+The blurred background must show:
+- A sample revenue chart (use placeholder data clearly labeled "Sample data")
+- Sample client reliability scores
+- This makes the upgrade feel worth it
+
+PART 3: PRO TIER ANALYTICS FEATURES (after upgrade)
+
+Build these actual analytics components:
+
+1. REVENUE CHART (line chart, last 12 months)
+   - X axis: months, Y axis: ₹ amount
+   - Two lines: "Invoiced" (green) and "Received" (lighter green)
+   - Data from Supabase: sum of invoice amounts by month, grouped by status
+   - Use Recharts library (already likely installed, if not: npm install recharts)
+
+2. CLIENT RELIABILITY SCORES TABLE
+   Columns: Client Name | Total Invoiced | Total Paid | Avg. Payment Days | Score (A/B/C/D)
+   Score calculation:
+   - A: pays within due date always
+   - B: pays within 7 days of due
+   - C: pays within 30 days of due  
+   - D: >30 days or unpaid
+   Query: join clients + invoices, calculate avg days_to_pay per client
+
+3. PAYMENT BEHAVIOR INSIGHTS
+   - "X% of your invoices are paid on time"
+   - "Your slowest-paying client takes an average of X days"
+   - "You send X reminders per invoice on average"
+
+4. EXPORT BUTTONS
+   - "Export CSV" button — generates CSV of all invoice data
+   - "Export PDF Report" button — generates a simple PDF summary
+
+PART 4: TYPOGRAPHY ON ANALYTICS PAGE
+- Remove the lock icon's oversized square background — just use the icon
+- "Unlock Professional Analytics" → make this H2 size (24px), not oversized
+- Feature list items: 15px, with proper green check icons
+- The upgrade card must have a visible close/dismiss option: "Maybe later" text link
+```
+
+---
+
+## 🟡 PROMPT 5 — Clients page: fix everything
+
+```
+CLIENTS PAGE COMPLETE FIX — PayFlow AI
+
+PART 1: DATABASE FIX (must do first, connects to Prompt 1)
+The add client form must save to Supabase with these exact columns:
+- id (uuid, auto-generated)
+- user_id (uuid, from auth.uid())
+- full_name (text, required)
+- email (text, required)
+- phone (text, nullable)
+- whatsapp (text, nullable)
+- company_name (text, nullable)
+- created_at (timestamp, auto)
+
+Run this in Supabase SQL editor if these columns don't exist:
+ALTER TABLE clients 
+  ADD COLUMN IF NOT EXISTS phone TEXT,
+  ADD COLUMN IF NOT EXISTS whatsapp TEXT,
+  ADD COLUMN IF NOT EXISTS company_name TEXT;
+
+Make sure RLS is enabled: user can only see their own clients (user_id = auth.uid())
+
+PART 2: ADD CLIENT PANEL FIXES
+- The X close button must work: onClick={() => setShowPanel(false)}
+- The Cancel button must work: onClick={() => setShowPanel(false)}  
+- Clicking outside the panel (overlay) must close it
+- After successful save, close panel AND refresh the clients list
+- Show a success toast: "Client added successfully!"
+- On error, show the specific error message, not just a generic failure
+
+Remove the placeholder "+91 98765 43210" from the WhatsApp field — this is a fake number. Use placeholder="e.g. +91 9876543210" instead.
+
+PART 3: RENAME CONFUSING COLUMN HEADERS
+The clients table headers are confusing for freelancers. Change to:
+- "CLIENT" → "Name & Contact"
+- "CONTACT INFORMATION" → remove (merge into first column)
+- "SETTLED VOLUME" → "Total Billed"
+- "RELIABILITY SCORE" → "Pay Score" with a tooltip explaining: "Based on how quickly this client pays your invoices"
+- "LATENCY" → "Avg. Pay Time" with tooltip: "Average days from invoice sent to payment received"
+- "LIQUIDITY POTENTIAL" → "Revenue Potential"
+
+PART 4: EXPLAIN THE SORT OPTIONS TO USERS
+The "Name | Billed | Score" sort options are tiny and look like plain text.
+Fix:
+- Make them look like actual clickable buttons (add hover state, underline on hover)
+- Add a label before them: "Sort by:" (14px, muted)
+- "Score" sort is the most valuable — explain it in a tooltip icon (ⓘ)
+  Tooltip text: "Clients with the highest total billed amount appear first"
+
+PART 5: FREE PLAN CLIENT LIMIT
+When user has 2 clients on free plan:
+- Disable the "Add Client" button
+- Show tooltip on hover: "Free plan limit reached (2/2 clients). Upgrade to add more."
+- Do NOT silently fail — show clear messaging
+
+PART 6: EMPTY STATE IMPROVEMENT
+Current: "No clients yet. Add your first client →"
+Replace with:
+- Icon: person+ in a circle
+- Headline: "Add your first client"
+- Subtext: "Start by adding the people or companies you work for. Once added, you can create invoices and track payments for each client."
+- Button: "Add Client" (primary green)
+```
+
+---
+
+## 🟡 PROMPT 6 — Invoices: AI extraction supporting all file types + form language cleanup
+
+```
+INVOICES PAGE COMPLETE OVERHAUL — PayFlow AI
+
+PART 1: PAGE HEADER FIX
+Change:
+- "Financial Documentation" → "Invoices"
+- "Monitor liquidation events and settlement timelines." → "Create, send, and track invoices for all your freelance work."
+- "Search by ID or entity..." → "Search by client or invoice number..."
+
+PART 2: AI EXTRACTION — SUPPORT ALL FILE FORMATS
+Currently only accepts TXT, PNG, JPG. This is wrong for freelancers.
+
+Add support for: PDF, XLSX, XLS, CSV, DOCX, JPG, PNG, TXT
+
+Implementation:
+npm install pdf-parse xlsx mammoth
+
+Create a new file: src/lib/extractInvoiceData.ts
+
+import * as XLSX from 'xlsx'
+import mammoth from 'mammoth'
+
+export async function extractTextFromFile(file: File): Promise<string> {
+  const ext = file.name.split('.').pop()?.toLowerCase()
+  
+  if (ext === 'pdf') {
+    // Use PDF.js or send to backend for extraction
+    // For now, use a base64 approach with Claude API
+    const base64 = await fileToBase64(file)
+    return await extractWithClaude(base64, 'application/pdf')
+  }
+  
+  if (ext === 'xlsx' || ext === 'xls') {
+    const arrayBuffer = await file.arrayBuffer()
+    const workbook = XLSX.read(arrayBuffer)
+    const firstSheet = workbook.Sheets[workbook.SheetNames[0]]
+    return XLSX.utils.sheet_to_csv(firstSheet)
+  }
+  
+  if (ext === 'csv') {
+    return await file.text()
+  }
+  
+  if (ext === 'docx') {
+    const arrayBuffer = await file.arrayBuffer()
+    const result = await mammoth.extractRawText({ arrayBuffer })
+    return result.value
+  }
+  
+  if (ext === 'txt') {
+    return await file.text()
+  }
+  
+  if (['jpg', 'jpeg', 'png'].includes(ext || '')) {
+    const base64 = await fileToBase64(file)
+    return await extractWithClaude(base64, file.type)
+  }
+  
+  throw new Error('Unsupported file type')
+}
+
+async function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      const result = reader.result as string
+      resolve(result.split(',')[1])
+    }
+    reader.readAsDataURL(file)
+  })
+}
+
+Update the file upload dropzone:
+- Accept: ".pdf,.xlsx,.xls,.csv,.docx,.txt,.png,.jpg,.jpeg"
+- Label: "PDF, Excel, CSV, Word, or image — up to 10MB"
+- Update the icon from a cloud upload to a document/file icon
+
+PART 3: AI EXTRACTION PROMPT FOR MULTIPLE CLIENTS
+When AI extracts data from a file with multiple clients (e.g. a spreadsheet with 
+10 rows of client data), it must:
+1. Detect that there are multiple records
+2. Show a preview table: "We found X clients in your file. Review and import:"
+   | Name | Email | Company | Phone | Action |
+   | Raj Kumar | raj@... | Acme | 99... | ✓ Import |
+3. Allow user to check/uncheck which clients to import
+4. "Import Selected" button adds all checked clients in one batch
+
+The AI prompt to use (send to your backend AI endpoint):
+"""
+You are an invoice and client data extractor. Analyze the following file content 
+and extract structured data. 
+
+If it contains CLIENT information, return JSON:
+{
+  "type": "clients",
+  "records": [
+    { "full_name": "...", "email": "...", "company_name": "...", "phone": "..." }
+  ]
+}
+
+If it contains INVOICE information, return JSON:
+{
+  "type": "invoice", 
+  "client_name": "...",
+  "description": "...",
+  "amount": 0,
+  "due_date": "YYYY-MM-DD",
+  "items": [
+    { "description": "...", "quantity": 1, "rate": 0, "amount": 0 }
+  ],
+  "notes": "..."
+}
+
+File content:
+[PASTE EXTRACTED TEXT HERE]
+"""
+
+PART 4: INVOICE FORM — COMPLETE LANGUAGE CLEANUP
+All field labels inside the manual invoice form must change:
+
+"CLIENT" label → "Client *"
+"Select client..." → "Select a client..."
+"MISSION DESCRIPTION" → "Project Description *"
+"e.g. Website Redesign Q3" placeholder — keep this, it's good
+"SETTLEMENT DEADLINE" → "Payment Due Date *"
+"CURRENCY VECTOR" → "Currency"
+"LINE ITEM DISTRIBUTION" → "What are you billing for?"
+"Unit description" placeholder → "e.g. Logo design, 2 revisions"
+"APPEND VECTOR" button → "+ Add another item"
+"1 VECTORS DEFINED" counter → "1 item"
+"STRATEGIC NOTES" → "Notes for client (optional)"
+Notes placeholder → "e.g. Payment via bank transfer. NEFT details: ..."
+"NET VALUE" → "Subtotal"
+"TAX OVERLOAD (%)" → "GST / Tax (%)"
+"TOTAL LIQUIDATION" → "Total Due"
+"RELOAD AI ENGINE" → "Re-extract with AI"
+"Hold as Draft" → "Save as Draft"
+"SEND INVOICE" → "Send Invoice →"
+
+PART 5: INVOICE STATUS BADGES
+Make status badges clearly color-coded and readable:
+- Draft: gray background, gray text, "Draft"
+- Sent: blue background, blue text, "Sent"
+- Viewed: purple background, "Viewed" (track when client opens)
+- Paid: green background, green text, "Paid ✓"
+- Overdue: red background, red text, "Overdue"
+- Partially Paid: amber background, "Partial"
+```
+
+---
+
+## 🟡 PROMPT 7 — Projects page fix
+
+```
+PROJECTS PAGE COMPLETE FIX — PayFlow AI
+
+PART 1: COPY CLEANUP (already covered in Prompt 2 but confirm these)
+- "Project Mission Control" → "Projects"
+- "Launch New Mission" → "+ New Project"  
+- "No Active Missions" → "No projects yet"
+- "Initialize First Program" → "Create your first project"
+
+PART 2: CLIENT DROPDOWN FIX
+The New Project panel shows "Add a client first" because the client query fails.
+This is the same DB bug from Prompt 1. After fixing the clients schema:
+
+In the New Project form, the Client dropdown must:
+1. useEffect on panel open: fetch all clients for current user from Supabase
+2. Show loading state while fetching: "Loading clients..."
+3. Map clients to dropdown options: { value: client.id, label: client.full_name }
+4. If no clients exist: show "No clients yet — Add a client first" with link to /clients
+
+PART 3: PROJECTS SCHEMA CHECK
+The earlier error "column clients_1 company does not exist" means there's a 
+broken foreign key or join query. 
+
+Fix the projects query:
+-- Correct join:
+SELECT projects.*, clients.full_name as client_name 
+FROM projects 
+LEFT JOIN clients ON projects.client_id = clients.id
+WHERE projects.user_id = auth.uid()
+
+NOT: clients_1.company (this is wrong — Supabase was auto-aliasing)
+
+PART 4: "LINK TO INVOICE" DROPDOWN
+The dropdown shows "No invoice" with a bright green highlight which looks broken.
+Fix:
+- Default option: "No invoice linked" (no green highlight on default)
+- Only highlight selected option (use your theme's selection color, not lime green)
+- Fetch invoices on panel open, same as clients
+
+PART 5: WHY DOES PROJECTS EXIST? ADD CONTEXT FOR USERS
+Freelancers don't always understand why Projects is separate from Invoices.
+Add a subtle helper text under the page header:
+"Projects help you track ongoing work. Link a project to an invoice to see 
+what's been billed vs what's still in progress."
+
+PART 6: PROJECT STATUS UI
+The ALL / ACTIVE / COMPLETED tabs must work correctly:
+- ALL: shows all projects
+- ACTIVE: filters where status = 'active'
+- COMPLETED: filters where status = 'completed'
+
+The two view icons (grid view / list view) are useful — keep them but make sure 
+they actually switch between a card grid view and a table list view.
+
+PART 7: COLOR CONTRAST FIX (outdoor visibility)
+Many text elements are too light on the dark background. 
+This affects ALL pages but especially Projects and Reminders.
+
+Minimum contrast standards to apply:
+- Body text: color: rgba(255, 255, 255, 0.87) — NOT 0.5 or 0.6
+- Muted/secondary text: rgba(255, 255, 255, 0.65) — never below 0.5
+- Labels and overlines: rgba(255, 255, 255, 0.55) minimum
+- Remove any text that's rgba(255,255,255, 0.3) or lower — it's unreadable in sunlight
+- Active nav items: 100% white, font-weight: 600
+- Inactive nav items: rgba(255,255,255,0.7) — currently too faint
+
+In Tailwind terms:
+- Replace text-white/30, text-white/40, text-white/50 with text-white/70 minimum
+- For important labels: text-white/90
+```
+
+---
+
+## 🟡 PROMPT 8 — Reminders page: complete redesign
+
+```
+REMINDERS PAGE REDESIGN — PayFlow AI
+
+UNDERSTANDING THE PAGE'S PURPOSE FIRST:
+Reminders = the core feature of PayFlow AI. This is where freelancers see 
+which payment reminders were sent, to whom, when, and what the result was.
+It's like an email sent box specifically for payment follow-ups.
+
+PART 1: RENAME EVERYTHING (confirm these specific changes)
+Page title: "Transmission Logs" → "Payment Reminders"
+"Communication Ledger" → "Reminder History"
+"0 Packets Transmitted Successfully" → "0 reminders sent"
+Search placeholder: "DISCOVERY: SEARCH ACROSS COMMUNICATION GRID..." → "Search by client or invoice..."
+"XLS EXPORT" → "Export"
+"RESET FILTERS" → "Clear"
+
+Empty state:
+- "SILENCE IN THE GRID" → "No reminders sent yet"
+- "NO REMINDERS YET. CREATE YOUR FIRST INVOICE TO START." → "Once you create an invoice and set up payment terms, PayFlow AI will automatically send reminders to your clients when payment is due."
+- "TRIGGER PILOT" → "Create your first invoice" (links to /invoices/new)
+  Remove ALL caps from this button
+
+PART 2: THE 4 STATS CARDS AT BOTTOM — THESE ARE FAKE DATA, FIX THEM
+The current stats (98.4% relay success, 14.2m avg latency, 42% response rate, 99.9% uptime) 
+are FAKE hardcoded numbers. Freelancers will catch this immediately and lose trust.
+
+Calculate these from REAL data:
+- "Delivery Rate" — count(reminders where status='delivered') / count(all reminders) × 100
+  If 0 reminders: show "--" not 98.4%
+- "Avg. Response Time" — avg(days between reminder sent and invoice paid)
+  If 0: show "--" not 14.2m  
+- "Open Rate" — only relevant if emails have tracking pixels; if not implemented yet: HIDE this stat
+- "Platform Uptime" — REMOVE THIS ENTIRELY. This is meaningless to a freelancer.
+
+Replace the 4 fake stats with 4 real ones:
+- "Reminders Sent" — count of all reminders (real Supabase count)
+- "Invoices Paid After Reminder" — count where invoice.status = 'paid' and reminder was sent
+- "Clients Notified" — distinct count of clients who received at least 1 reminder
+- "Avg. Days to Payment" — real average from your data, "--" if no data yet
+
+PART 3: REMINDER HISTORY TABLE COLUMNS
+When reminders exist, the table should show:
+- Client Name (linked to client detail page)
+- Invoice # and amount
+- Reminder sent date
+- Reminder type (First reminder / Second follow-up / Final notice)
+- Email status (Sent / Delivered / Opened / Failed) 
+- Invoice status badge (Paid / Overdue / Pending)
+- Action: "Send again" button
+
+PART 4: EXPLAIN THE PAGE TO USERS
+Add a help text below the page title (dismissible):
+"PayFlow AI automatically sends payment reminders for you. 
+Set up reminder schedules inside each invoice — we handle the rest."
+[Got it] button dismisses this (save dismissal to localStorage)
+
+PART 5: MANUAL REMINDER TRIGGER
+Add a "+ Send Reminder Now" button (top right) for cases where the user wants 
+to manually trigger a reminder for a specific overdue invoice.
+Opens a modal: Select invoice → Preview message → Send
+```
+
+---
+
+## 🟡 PROMPT 9 — Settings + Navigation clarity + Information Architecture
+
+```
+SETTINGS + NAVIGATION REDESIGN — PayFlow AI
+
+PART 1: NAVIGATION — EXPLAIN WHAT EACH SECTION IS FOR
+
+Add subtle tooltips or descriptions to each sidebar nav item. 
+When user hovers on a nav item, show a tooltip:
+- Dashboard: "Your overview and quick actions"
+- Analytics: "Revenue trends and client insights" (Pro)
+- Clients: "Manage who you work with"
+- Invoices: "Create and track what you've billed"
+- Projects: "Track ongoing work by project"
+- Reminders: "Automated payment follow-ups"
+- Settings: "Account, billing, and preferences"
+
+WHY SEPARATE CLIENTS / INVOICES / PROJECTS? Add an onboarding hint (only once):
+Show a one-time guide card on first login:
+"Here's how PayFlow AI works:
+1. Add a Client → the person or company paying you
+2. Create an Invoice → bill them for your work  
+3. Set Reminders → we follow up automatically
+4. Get Paid → track everything here"
+Dismiss button: "Got it, let's go →"
+
+PART 2: SETTINGS PAGE — SECTION STRUCTURE
+Organize settings into clear tabs:
+- Profile (user info)
+- Notifications (email preferences)
+- Billing (plan + subscription)
+- Account (danger zone: delete account, export data)
+
+PART 3: PROFILE TAB
+Show:
+- Full name (editable)
+- Email (read-only with "Change email" link)
+- Profile photo (upload option — store in Supabase storage)
+- Business name (used on invoice headers)
+- Business address (optional — used on invoices)
+- GST number (optional — appears on Indian invoices)
+- Default currency (INR / USD / EUR / GBP — dropdown)
+- Default payment terms (7 days / 14 days / 30 days / Custom — dropdown)
+Remove: any fields that don't directly affect the user's invoicing workflow
+
+PART 4: NOTIFICATIONS TAB
+Keep only relevant notification options for freelancers:
+✅ Email me when a client views my invoice
+✅ Email me when a client pays my invoice  
+✅ Email me before a reminder is automatically sent
+✅ Email me weekly summary of outstanding payments
+✅ Email me when an invoice becomes overdue
+
+Remove: "System notifications", "Marketing updates" from here (add to profile)
+Each toggle must save to Supabase immediately (optimistic update + debounced save)
+
+PART 5: BILLING TAB — FIX THE UPGRADE ERROR
+"Error: Contact support" when clicking upgrade is unacceptable.
+
+Fix:
+1. Find the upgrade button onClick handler
+2. It's likely calling a Paddle checkout URL that isn't configured yet
+3. For now, replace with a modal:
+   Title: "Upgrade to Pro — ₹1,999/month"
+   Body: "Paddle payment integration is being set up. Be the first to know when it's live:"
+   Email input + "Notify me" button (saves to a waitlist table in Supabase)
+   
+4. When Paddle IS ready, implement:
+   import { initializePaddle } from '@paddle/paddle-js'
+   const paddle = await initializePaddle({ environment: 'sandbox', token: PADDLE_TOKEN })
+   paddle.Checkout.open({ items: [{ priceId: PRO_PRICE_ID }] })
+
+PART 6: PLAN NAMES — FINAL STANDARDIZATION IN SETTINGS
+Change in the settings billing section:
+- "PROTOCOL LICENSES" → "Your Current Plan"
+- "FREE PROTOCOL" badge → "Free Plan"
+- "STARTER" plan name → "Free"
+- "PRO OPERATOR" → "Pro"  
+- "AGENCIES" → "Growth"
+- "ENTITY CAPACITY" metric → "Clients"
+- "ACTIVE PROTOCOLS" metric → "Active Invoices"
+- "Go Agency" button → "Upgrade to Growth"
+- The purple "Go Agency" button color is inconsistent — change to the app's green or a proper blue
+
+PART 7: USER PROFILE IN SIDEBAR
+The user profile at bottom left shows "P" avatar + "Priyanka Konduru" + "FREE" badge.
+Keep this but improve:
+- "FREE" badge → show as a small pill: "Free Plan"
+- Add a subtle "Upgrade" link next to the plan badge (only on free plan)
+- The logout icon (→ arrow) is confusing — add a tooltip "Sign out" on hover
+```
+
+---
+
+## 🟢 PROMPT 10 — Database schema audit + Supabase architecture
+
+```
+SUPABASE SCHEMA AUDIT AND FIX — PayFlow AI
+
+Run these SQL commands in Supabase SQL editor to ensure the schema is correct:
+
+-- 1. Check current clients table structure:
+SELECT column_name, data_type, is_nullable 
+FROM information_schema.columns 
+WHERE table_name = 'clients';
+
+-- 2. Ensure all required columns exist:
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS full_name TEXT NOT NULL DEFAULT '';
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS email TEXT;
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS phone TEXT;
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS whatsapp TEXT;
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS company_name TEXT;
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS user_id UUID REFERENCES auth.users(id);
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT NOW();
+
+-- 3. Check invoices table:
+SELECT column_name, data_type 
+FROM information_schema.columns 
+WHERE table_name = 'invoices';
+
+-- Ensure invoices has:
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS invoice_number TEXT;
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS description TEXT;
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS due_date DATE;
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'draft';
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS total_amount NUMERIC(12,2) DEFAULT 0;
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS currency TEXT DEFAULT 'INR';
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS notes TEXT;
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS client_id UUID REFERENCES clients(id);
+ALTER TABLE invoices ADD COLUMN IF NOT EXISTS user_id UUID REFERENCES auth.users(id);
+
+-- 4. Ensure projects table has:
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS name TEXT NOT NULL DEFAULT '';
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS client_id UUID REFERENCES clients(id);
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS invoice_id UUID REFERENCES invoices(id);
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'active';
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS description TEXT;
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS user_id UUID REFERENCES auth.users(id);
+
+-- 5. Create reminders table if missing:
+CREATE TABLE IF NOT EXISTS reminders (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id),
+  invoice_id UUID REFERENCES invoices(id),
+  client_id UUID REFERENCES clients(id),
+  sent_at TIMESTAMPTZ DEFAULT NOW(),
+  status TEXT DEFAULT 'sent', -- sent, delivered, opened, failed
+  reminder_type TEXT DEFAULT 'first', -- first, second, final
+  email_subject TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 6. Enable Row Level Security on all tables:
+ALTER TABLE clients ENABLE ROW LEVEL SECURITY;
+ALTER TABLE invoices ENABLE ROW LEVEL SECURITY;
+ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
+ALTER TABLE reminders ENABLE ROW LEVEL SECURITY;
+
+-- 7. Create RLS policies (users see only their own data):
+CREATE POLICY "users_own_clients" ON clients 
+  FOR ALL USING (auth.uid() = user_id);
+
+CREATE POLICY "users_own_invoices" ON invoices 
+  FOR ALL USING (auth.uid() = user_id);
+
+CREATE POLICY "users_own_projects" ON projects 
+  FOR ALL USING (auth.uid() = user_id);
+
+CREATE POLICY "users_own_reminders" ON reminders 
+  FOR ALL USING (auth.uid() = user_id);
+
+-- 8. After all schema changes, reload the schema cache:
+NOTIFY pgrst, 'reload schema';
+-- OR in Supabase dashboard: Settings → API → Reload schema
+
+After running all this, test:
+1. Add a client ✓
+2. Create an invoice with that client ✓
+3. Create a project linked to that client ✓
+4. Reminders table exists and can be queried ✓
+```
+
+---
+
+## 🟢 PROMPT 11 — Overall polish pass (run LAST)
+
+```
+FINAL POLISH PASS — PayFlow AI
+
+After all previous prompts are done, run this polish pass:
+
+1. GLOBAL FONT CONSISTENCY CHECK
+Every page must use the same font stack: Inter, system-ui, sans-serif
+Check: dashboard, clients, invoices, projects, reminders, settings, all legal pages
+If any page shows a different font — add font-family: 'Inter', sans-serif to its root element
+
+2. HEADING HIERARCHY — VERIFY ON EVERY PAGE
+- Page titles (Dashboard, Clients, Invoices etc): 24px, font-weight: 600, white
+- Section titles inside pages: 18px, font-weight: 600, white  
+- Card titles: 15px, font-weight: 500, white
+- Labels / overlines: 12px, font-weight: 500, 60% opacity, uppercase, letter-spacing: 0.06em
+- Body text: 14–15px, font-weight: 400, 80% opacity
+- Captions/hints: 13px, 55% opacity
+
+3. BUTTON CONSISTENCY
+Primary (action) button: lime green (#84cc16) background, black text, 14px medium, 36px height, 16px horizontal padding, border-radius: 8px
+Secondary button: transparent background, 1px border (40% white), white text
+Danger button: red background, white text
+All buttons: same height (36px), same border-radius (8px)
+Remove ALL caps text from buttons (SEND INVOICE → Send Invoice)
+
+4. REMOVE FAKE DATA AND PLACEHOLDERS
+- "+91 98765 43210" appears as a real phone number in the contact page and WhatsApp placeholder — remove it
+- The Reminders stats (98.4%, 14.2m, 42%, 99.9%) are fake — replace with real data or "--"
+- Any sample amounts like ₹1,25,000 should only appear in onboarding/empty state demos, clearly labeled "Example"
+
+5. LOADING STATES ON ALL DATA FETCHES
+Every page that fetches from Supabase must show a skeleton loader while loading, not a blank screen.
+Use a simple skeleton: gray pulsing rectangles with Tailwind: animate-pulse bg-white/10 rounded
+
+6. ERROR BOUNDARIES
+Wrap each major route in an error boundary:
+If a page crashes, show: "Something went wrong. Refresh the page or contact support@payflowai.com"
+Not a blank white screen.
+
+7. MOBILE RESPONSIVENESS CHECK
+Test at 375px width (iPhone SE):
+- Sidebar must collapse to a bottom nav bar on mobile
+- Invoice form must stack fields vertically
+- Client table must show simplified view (just name + amount on mobile)
+- Dashboard cards must be 2-column grid on mobile, not 4
+
+8. TOAST NOTIFICATIONS — ADD THESE
+Every action must have feedback:
+- Client added: "✓ Client added successfully"
+- Invoice sent: "✓ Invoice sent to [client name]"  
+- Invoice saved as draft: "Draft saved"
+- Reminder sent: "✓ Reminder sent to [client name]"
+- Error: "[error message] — If this keeps happening, contact support"
+Use a simple toast library: npm install sonner (already popular with React)
+```
+
+---
+
+**Run order:** Prompt 1 (DB fix) → Prompt 2 (jargon cleanup) → Prompt 3 (dashboard) → Prompt 10 (schema audit) → Prompt 5 (clients) → Prompt 6 (invoices) → Prompt 7 (projects) → Prompt 8 (reminders) → Prompt 4 (analytics) → Prompt 9 (settings) → Prompt 11 (polish).
+
+The single most trust-destroying issue right now is the fake stats (98.4% relay success) and the military language. Those two alone would make any real freelancer close the tab immediately. After Prompts 1, 2, and 10, your app will feel 10x more professional overnight.

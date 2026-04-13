@@ -1,0 +1,145 @@
+Fix ONLY the Settings page data persistence and validation system.
+
+Do NOT touch any other feature.
+
+---
+
+PROBLEM:
+
+Currently:
+
+* Inputs accept values
+* Validation shows errors
+* But data is NOT saved correctly
+* Data disappears when switching tabs or refreshing
+* Form is not connected properly to backend
+
+---
+
+GOAL:
+
+Make Settings fully persistent, validated, and stable.
+
+---
+
+IMPLEMENTATION (STRICT):
+
+1. DATA FLOW FIX
+
+* On page load:
+  → fetch user settings from database
+  → populate form fields using useEffect
+
+* Store form data in local state:
+  useState for each section:
+
+  * profile
+  * payment info
+  * notifications
+
+---
+
+2. FORM STATE CONTROL
+
+Every input must:
+
+* have value={state}
+* have onChange → update state
+
+Example:
+value={form.upiId}
+onChange={(e) => setForm({...form, upiId: e.target.value})}
+
+NO uncontrolled inputs.
+
+---
+
+3. SAVE BUTTON LOGIC
+
+On clicking:
+
+"Save profile"
+"Save payment info"
+"Save notifications"
+
+Do:
+
+* validate inputs
+* if invalid → stop + show error
+* if valid:
+  → send API request (PUT/PATCH)
+  → update DB
+  → update local state with response
+
+---
+
+4. PREVENT DATA RESET
+
+DO NOT:
+
+* reset form on tab switch
+* refetch unnecessarily
+
+Use:
+
+* state persists across tabs
+* only fetch once on mount
+
+---
+
+5. VALIDATION RULES
+
+Phone:
+
+* only numbers
+* length 10–15
+
+UPI:
+
+* must include "@"
+* format: text@bank
+
+IFSC:
+
+* regex: /^[A-Z]{4}0[A-Z0-9]{6}$/
+
+PayPal:
+
+* valid email format
+
+---
+
+6. ERROR HANDLING UI
+
+* show red border
+* show small error text
+* DO NOT clear input
+
+---
+
+7. SUCCESS STATE
+
+After save:
+
+* show toast: "Saved successfully"
+* keep values (DO NOT clear)
+
+---
+
+8. PROFILE IMAGE FIX
+
+* upload file → store URL in DB
+* show preview immediately
+* persist after refresh
+
+---
+
+FINAL RESULT:
+
+* No disappearing values
+* Save works correctly
+* Validation blocks wrong input
+* Data persists after refresh
+
+DO NOT TOUCH UI DESIGN.
+Only fix logic, state, and backend connection.

@@ -1,0 +1,8 @@
+{
+  "canPreview": true,
+  "devConfig": {
+    "startCommand": "npm run dev",
+    "installCommand": "npm install",
+    "port": 8080
+  }
+}
