@@ -54,10 +54,8 @@ const AuthRedirectHandler = () => {
     // 1. Detect session on page load if hash contains typical Supabase tokens
     const hash = window.location.hash;
     if (session && hash && (hash.includes("access_token") || hash.includes("refresh_token"))) {
-      // Clean up the URL hash
-      window.history.replaceState(null, "", window.location.pathname);
-      // Redirect to dashboard
-      navigate("/dashboard", { replace: true });
+      // Clean up and refresh to landing page
+      window.location.href = "/";
     }
 
     // 2. Listen for auth state changes (requested by user)
@@ -70,10 +68,10 @@ const AuthRedirectHandler = () => {
            window.history.replaceState(null, "", window.location.pathname);
         }
         
-        // Only redirect if we are on a public login/landing page to avoid loops
-        const publicPages = ['/', '/auth', '/auth/callback'];
+        // Only redirect if we are on a login/callback page
+        const publicPages = ['/auth', '/auth/callback'];
         if (publicPages.includes(window.location.pathname)) {
-          navigate("/dashboard", { replace: true });
+          window.location.href = "/";
         }
       }
     });
@@ -120,10 +118,6 @@ const App = () => (
                 <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
                 <Route path="/billing" element={<PrivateRoute><Billing /></PrivateRoute>} />
 
-                {/* Removed pages — redirect to dashboard */}
-                <Route path="/analytics" element={<Navigate to="/dashboard" replace />} />
-                <Route path="/projects" element={<Navigate to="/dashboard" replace />} />
-                <Route path="/projects/:id" element={<Navigate to="/dashboard" replace />} />
 
                 <Route path="*" element={<NotFound />} />
               </Routes>
