@@ -1,5 +1,5 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -29,6 +29,7 @@ import { AuthProvider, useAuth } from "./hooks/useAuth.tsx";
 import { PaddleProvider } from "@/components/PaddleProvider";
 import { Settings } from "./pages/Settings.tsx";
 import { OnboardingFlow } from "./components/OnboardingFlow.tsx";
+import { supabase } from "@/lib/supabase";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,50 @@ function PrivateRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+/**
+ * Handles redirects after successful Supabase OAuth login
+ * especially when redirected to the homepage (/) with tokens in the hash.
+ */
+const AuthRedirectHandler = () => {
+  const navigate = useNavigate();
+  const { session, isLoading } = useAuth();
+
+  useEffect(() => {
+    if (isLoading) return;
+
+    // 1. Detect session on page load if hash contains typical Supabase tokens
+    const hash = window.location.hash;
+    if (session && hash && (hash.includes("access_token") || hash.includes("refresh_token"))) {
+      // Clean up the URL hash
+      window.history.replaceState(null, "", window.location.pathname);
+      // Redirect to dashboard
+      navigate("/dashboard", { replace: true });
+    }
+
+    // 2. Listen for auth state changes (requested by user)
+    // This ensures that as soon as a session is established, we navigate away
+    // from the token-heavy landing page.
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session && (event === 'SIGNED_IN' || event === 'USER_UPDATED')) {
+        const currentHash = window.location.hash;
+        if (currentHash && currentHash.includes("access_token")) {
+           window.history.replaceState(null, "", window.location.pathname);
+        }
+        
+        // Only redirect if we are on a public login/landing page to avoid loops
+        const publicPages = ['/', '/auth', '/auth/callback'];
+        if (publicPages.includes(window.location.pathname)) {
+          navigate("/dashboard", { replace: true });
+        }
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [session, isLoading, navigate]);
+
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -48,6 +93,7 @@ const App = () => (
         <BrowserRouter>
           <PaddleProvider>
             <AuthProvider>
+              <AuthRedirectHandler />
               <OnboardingFlow />
               <Routes>
                 {/* Public routes */}
