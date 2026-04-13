@@ -52,27 +52,31 @@ const AuthRedirectHandler = () => {
   useEffect(() => {
     if (isLoading) return;
 
-    // 1. Detect session on page load if hash contains typical Supabase tokens
     const hash = window.location.hash;
-    if (session && hash && (hash.includes("access_token") || hash.includes("refresh_token"))) {
-      // Clean up and refresh to landing page
-      window.location.href = "/";
+    const isPublicPage = ['/', '/auth', '/auth/callback'].includes(window.location.pathname);
+
+    // 1. Detect session on page load if hash contains typical Supabase tokens
+    if (hash.includes("access_token") || hash.includes("refresh_token")) {
+      // Clean up and refresh to dashboard
+      window.history.replaceState(null, "", "/dashboard");
+      window.location.href = "/dashboard";
+      return;
     }
 
-    // 2. Listen for auth state changes (requested by user)
-    // This ensures that as soon as a session is established, we navigate away
-    // from the token-heavy landing page.
+    // 2. If session exists but we are on a landing/login page, move to dashboard
+    if (session && isPublicPage) {
+      window.location.href = "/dashboard";
+    }
+
+    // 3. Listen for auth state changes (requested by user)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (session && (event === 'SIGNED_IN' || event === 'USER_UPDATED')) {
         const currentHash = window.location.hash;
         if (currentHash && currentHash.includes("access_token")) {
-           window.history.replaceState(null, "", window.location.pathname);
-        }
-        
-        // Only redirect if we are on a login/callback page
-        const publicPages = ['/auth', '/auth/callback'];
-        if (publicPages.includes(window.location.pathname)) {
-          window.location.href = "/";
+           window.history.replaceState(null, "", "/dashboard");
+           window.location.href = "/dashboard";
+        } else if (['/', '/auth', '/auth/callback'].includes(window.location.pathname)) {
+          window.location.href = "/dashboard";
         }
       }
     });
